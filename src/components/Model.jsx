@@ -9,6 +9,7 @@ import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 import { models, sizes } from "../constants";
 import { animateWithGsapTimeLine } from "../utils/animation";
+import { animateWithGsap } from "../utils/animation";
 
 const Model = () => {
     const [size, setSize] = useState("small");
@@ -32,23 +33,23 @@ const Model = () => {
     const timeLine = gsap.timeline();
 
     useEffect(() => {
-        if(size === 'large'){
+        if (size === 'large') {
             animateWithGsapTimeLine(timeLine, small, smallRotation, "#view1", "#view2", {
                 transform: 'translateX(-100%)',
                 duration: 2,
             })
         }
 
-        if(size === 'small'){
+        if (size === 'small') {
             animateWithGsapTimeLine(timeLine, large, largeRotation, "#view2", "#view1", {
                 transform: 'translateX(0)',
                 duration: 2,
-            })  
+            })
         }
     }, [size])
 
     useGSAP(() => {
-        gsap.to("#heading", {
+        animateWithGsap("#heading", {
             y: 0,
             opacity: 1,
         })
