@@ -3,6 +3,9 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { animateWithGsap } from "../utils/animation"
 import { useRef } from "react"
+import ScrollTrigger from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger);
+
 
 const HowItWorks = () => {
     const videoRef = useRef();

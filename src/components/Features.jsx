@@ -95,8 +95,8 @@ const Feartures = () => {
                     You'll notice the difference the moment you pick one up.
                   </p>
                 </div>
-                
               </div>
+              
             </div>
           </div>
         </div>
