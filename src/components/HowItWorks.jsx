@@ -26,7 +26,7 @@ const HowItWorks = () => {
                 start: "top 80%"
             },
             opacity: 1,
-            x: 0,
+            y: 0,
             duration: 1,
             stagger: 0.5,
         })
