@@ -3,9 +3,18 @@ import { navLists } from '../constants'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import MobileNavBar from './MobileNavBar'
+import { useState } from 'react'
+
 gsap.registerPlugin(ScrollTrigger)
 
 const NavBar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const handleSetIsMenuOpen = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
+
 
     useGSAP(() => {
         gsap.to("#navBar", {
@@ -21,7 +30,7 @@ const NavBar = () => {
         <>
             <header className='w-full py-5 sm:px-10 px-5 flex justify-between items-center -translate-y-20 opacity-0' id="navBar">
                 <nav className='flex w-full screen-max-width'>
-                    <img src={appleImg} alt="Apple" width={14} height={18} />
+                    <img src={appleImg} alt="Apple" width={14} height={18} className='cursor-pointer' onClick={handleSetIsMenuOpen} />
 
                     <div className='flex flex-1 justify-center max-sm:hidden'>
                         {navLists.map((nav, index) => {
@@ -39,6 +48,8 @@ const NavBar = () => {
                     </div>
                 </nav>
             </header>
+
+            <MobileNavBar isOpen={isMenuOpen} navLists={navLists} handleSetIsMenuOpen={handleSetIsMenuOpen}/>
         </>
     )
 }
