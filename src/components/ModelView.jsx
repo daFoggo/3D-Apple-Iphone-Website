@@ -3,10 +3,21 @@ import { Html, OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
 import * as THREE from 'three'
 import Lights from './Lights';
 import Iphone from './Iphone';
-import { Suspense } from "react";
+import { Suspense, useState, useEffect } from "react";
 import Loader from "./Loader";
 
 const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, size, item }) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const userAgent = typeof window.navigator === "undefined" ? "" : navigator.userAgent;
+        const mobile = Boolean(
+            /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)
+        );
+        setIsMobile(mobile);
+    }, []);
+
+
     return (
         <View
             index={index}
@@ -17,7 +28,7 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, si
             <PerspectiveCamera makeDefault position={[0, 0, 4]}></PerspectiveCamera>
             <Lights></Lights>
 
-            <OrbitControls makeDefault ref={controlRef} enableZoom={false} enablePan={false} rotateSpeed={0.4} target={new THREE.Vector3(0, 0, 0)} onEnd={
+            <OrbitControls makeDefault ref={controlRef} enableZoom={isMobile} enablePan={false} rotateSpeed={0.4} target={new THREE.Vector3(0, 0, 0)} onEnd={
                 () => setRotationState(controlRef.current.getAzimuthalAngle())
             } />
 
