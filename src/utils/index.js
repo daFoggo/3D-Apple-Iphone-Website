@@ -29,6 +29,8 @@ import explore2 from "/assets/images/explore2.jpg";
 import chip from "/assets/images/chip.jpeg";
 import frame from "/assets/images/frame.png";
 
+import device from "/assets/images/deviceImg.png";
+
 export const heroVideo = hmv;
 export const smallHeroVideo = smallmv;
 export const highlightFirstVideo = highlightFirstmv;
@@ -55,3 +57,5 @@ export const explore1Img = explore1;
 export const explore2Img = explore2;
 export const chipImg = chip;
 export const frameImg = frame;
+
+export const deviceImg = device;

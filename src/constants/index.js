@@ -85,3 +85,43 @@ export const footerLinks = [
     "Legal",
     "Site Map",
 ];
+
+export const deviceInfo = [
+    {
+        id: 1,
+        name: "Iphone 15 Pro",
+        size: "6.1-inch display",
+        price: "From $999 or $41.62/mo.per month for 24 mo.months",
+        color: ["#bbb5a9", "#4a5261", "#f3f2ed", "#525455"],
+    },
+    {
+        id: 2,
+        name: "Iphone 15 Pro Max",
+        size: "6.7-inch display",
+        price: "From $1199 or $49.95/mo.per month for 24 mo.months",
+        color: ["#bbb5a9", "#4a5261", "#f3f2ed", "#525455"],
+    }
+]
+
+export const storageInfo = [
+    {
+        id: 1,
+        size: "128GB",
+        price: "From $999 or $41.62/mo.per month for 24 mo.months",
+    },
+    {
+        id: 2,
+        size: "256GB",
+        price: "From $1099 or $45.79/mo.per month for 24 mo.months",
+    },
+    {
+        id: 3,
+        size: "512GB",
+        price: "From $1299 or $54.12/mo.per month for 24 mo.months",
+    },
+    {
+        id: 4,
+        size: "1TB",
+        price: "From $1499 or $62.46/mo.per month for 24 mo.months",
+    }
+]
