@@ -30,6 +30,7 @@ import chip from "/assets/images/chip.jpeg";
 import frame from "/assets/images/frame.png";
 
 import device from "/assets/images/deviceImg.png";
+import iphoneForYou from "/assets/images/iphoneForYou.png";
 
 export const heroVideo = hmv;
 export const smallHeroVideo = smallmv;
@@ -59,3 +60,4 @@ export const chipImg = chip;
 export const frameImg = frame;
 
 export const deviceImg = device;
+export const iphoneForYouImg = iphoneForYou;

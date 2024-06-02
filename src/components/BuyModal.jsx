@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
-import { deviceImg } from '../utils';
+import { deviceImg, iphoneForYouImg } from '../utils';
 import { deviceInfo } from '../constants';
 import { storageInfo } from '../constants';
 
@@ -18,6 +18,15 @@ const BuyModal = ({ isOpen, handleSetIsModalOpen }) => {
                 duration: 1,
                 ease: "power2.inOut",
             });
+            
+            gsap.to(".modal-items", {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "power2.inOut",
+                stagger: 0.5,
+            })
+
             gsap.to("#backdrop", {
                 opacity: 0.5,
                 duration: 1,
@@ -30,6 +39,15 @@ const BuyModal = ({ isOpen, handleSetIsModalOpen }) => {
                 duration: 1,
                 ease: "power3.inOut",
             });
+
+            gsap.to(".modal-items", {
+                y: '100%',
+                opacity: 0,
+                duration: 1,
+                ease: "power3.inOut",
+                stagger: 0.5,
+            })
+
             gsap.to("#backdrop", {
                 opacity: 0,
                 duration: 1,
@@ -56,18 +74,18 @@ const BuyModal = ({ isOpen, handleSetIsModalOpen }) => {
                         </svg>
                     </div>
                 </div>
-                <div className='flex flex-col justify-between sm:px-20'>
+                <div className='modal-items flex flex-col justify-between sm:px-20'>
                     <div>
                         <h1 className='text-4xl font-bold mb-5'>
                             Buy iPhone 15 Pro
                         </h1>
                         <p className='text-sm'>From $199/month or $999</p>
                     </div>
-                    <div className='flex flex-col sm:flex-row justify-center'>
-                        <div className="flex flex-col device-img sm:w-2/3 sm:h-2/3 bg-cover">
-                            <img src={deviceImg} alt="iPhone" className='rounded-xl mt-5' />
+                    <div className='flex flex-col sm:flex-row justify-center items-start mt-5'>
+                        <div className="flex flex-col device-img sm:w-full sm:h-full bg-cover">
+                            <img src={deviceImg} alt="iPhone" className='rounded-xl' />
                         </div>
-                        <div className="device-info flex flex-col gap-12 sm:gap-48 p-5 sm:h-[50vh] sm:overflow-scroll">
+                        <div className="device-info flex flex-col gap-12 sm:gap-48 p-5 sm:max-h-[40vh] sm:overflow-scroll">
                             <div id="choose-size">
                                 <h1 className='text-2xl font-bold'>Which size is best for you?</h1>
                                 <div className='my-5 flex flex-col gap-5'>
@@ -131,6 +149,40 @@ const BuyModal = ({ isOpen, handleSetIsModalOpen }) => {
                                         </div>
                                     ))}
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='flex flex-col gap-5 sm:flex-row sm:justify-around mt-5 sm:bg-[#f5f5f7] rounded-xl sm:pt-10 sm:px-10'>
+                        <div className='flex flex-col gap-10 bg-[#f5f5f7] rounded-xl pt-10 px-10'>
+                            <div>
+                                <h1 className='text-[#1d1d1f] text-2xl sm:text-3xl font-bold'>
+                                    Your new iPhone awaits.
+                                </h1>
+                                <h1 className='text-[#86868b] text-1xl sm:text-2xl font-bold'>Make it yours.</h1>
+                            </div>
+                            <div className='w-1/2 '>
+                                <img src={iphoneForYouImg} alt="" className='' />
+                            </div>
+                        </div>
+                        <div className='flex flex-col gap-10 bg-[#f5f5f7] rounded-xl p-10'>
+                            <div>
+                                <div className='flex gap-3 items-center'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                                        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2" />
+                                    </svg>
+                                    <h1>Free shipping</h1>
+                                </div>
+                                <div className='flex gap-3 items-center'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+                                        <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
+                                    </svg>
+                                    <h1>
+                                        Pick up from store
+                                    </h1>
+                                </div>
+                            </div>
+                            <div>
+                                <button className='bg-blue px-20 py-3 rounded-xl text-white'>Continue</button>
                             </div>
                         </div>
                     </div>
